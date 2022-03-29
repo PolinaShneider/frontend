@@ -132,9 +132,9 @@ export const Transfers = () => {
                 </div>
                 <div>
                     <h2>Переводы</h2>
-                    {userTranfers.map((item: TransferOperation) => {
+                    {userTranfers.map((item: TransferOperation, key: number) => {
                         return (
-                            <div>
+                            <div key={key}>
                                 <hr />
                                 <p>Тип операции: {item.paymentType}</p>
                                 <p>

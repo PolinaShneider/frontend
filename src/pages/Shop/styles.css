@@ -1,0 +1,31 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    border-radius: 4px;
+    border: 1px solid black;
+    padding: 10px 20px;
+    margin: 10px;
+    box-sizing: border-box;
+    flex-basis: calc((100% / 3) - 20px);
+
+    font-family: 'Montserrat', serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.product-title {
+    margin-top: 5px;
+    font-family: 'Montserrat', serif;
+    font-weight: 700;
+}
+
+.product-price {
+    margin-top: 10px;
+}
+
+.product-button {
+    margin-top: 20px;
+}
