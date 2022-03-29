@@ -13,6 +13,7 @@ export const Header = () => {
                 <Link className="header-link" to="/">Домашняя страница</Link>
                 <Link className="header-link" to="/register">Создать аккаунт</Link>
                 <Link className="header-link" to="/profile">Профиль</Link>
+                <Link className="header-link" to="/transfers">Переводы</Link>
             </nav>
         </header>
     )

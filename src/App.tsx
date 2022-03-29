@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 
 import { Home } from './pages/Home';
 import { Registration } from './pages/Registration';
+import { Transfers } from './pages/Transfers';
 import { UserProfile } from './pages/UserProfile';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/transfers" element={<Transfers />} />
       </Routes>
     </div>
   );
