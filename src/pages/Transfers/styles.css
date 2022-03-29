@@ -1,0 +1,42 @@
+.transfers-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.your-balance {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 54px;
+}
+
+.bonuses {
+    color: violet;
+    font-weight: 800;
+}
+
+.select-field {
+    color: #A9A9A9;
+    border: 1px solid #000000;
+    background: #fff;
+    width: 467px;
+    margin-bottom: 20px;
+}
+
+.field {
+    color: #A9A9A9;
+    border: 1px solid #000000;
+    background: #fff;
+    width: 467px;
+    margin-bottom: 20px;
+}
+
+.field input {
+    background: white;
+}
+
+:root {
+    --form-control-bg-color: white;
+    --select-option-hover-background: white;
+}

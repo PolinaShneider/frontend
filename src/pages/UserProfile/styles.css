@@ -1,3 +1,70 @@
 .user-profile {
     display: flex
 }
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-title {
+    font-family: 'Montserrat', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 54px;
+    margin-top: 0;
+    margin-bottom: 55px;
+}
+
+.avatar-holder {
+    margin-right: 150px;
+    margin-left: 20px;
+}
+
+.user-name {
+    font-family: 'Montserrat', serif;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 54px;
+}
+
+.user-text {
+    font-family: 'Montserrat', serif;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 54px;
+    margin: 0;
+}
+
+.user-avatar {
+    width: 258px;
+    height: 258px;
+}
+
+.avatar-placeholder {
+    font-size: 96px;
+}
+
+.user-balance {
+    color: #6C63FF;
+    font-weight: 700;
+}
+
+.buttons-holder {
+    margin-top: 40px;
+}
+
+.transfer-button {
+    margin-left: 20px;
+    background: #2AE1C0;
+}
+
+.transfer-button:hover {
+    background: #2de1dd;
+}
+
+.button a {
+    text-decoration: none;
+    color: inherit;
+}

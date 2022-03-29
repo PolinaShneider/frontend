@@ -5,6 +5,8 @@ import authHeader from "../../utils";
 import { Input } from "@alfalab/core-components/input";
 import { Button } from "@alfalab/core-components/button";
 
+import './styles.css'
+
 const BACKEND_URL = 'http://94.228.120.208';
 
 type UserOption = {
@@ -110,17 +112,19 @@ export const Transfers = () => {
     return (
         <div>
             <h1>Страница переводов</h1>
-            <p>
-                Ваш баланс: <span>{balance} бонусов</span>
+            <p className="your-balance">
+                Ваш баланс: <span className="bonuses">{balance} бонусов</span>
             </p>
-            <div>
+            <div className="transfers-wrapper">
                 <div>
                     <Select
+                        className="select-field"
                         options={options}
                         placeholder="id получателя"
                         onChange={handleChange}
                     />
                     <Input
+                        className="field"
                         placeholder="Сколько отправляем?"
                         onChange={handleAmount}
                     />
