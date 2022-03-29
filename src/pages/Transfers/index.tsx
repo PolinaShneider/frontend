@@ -19,11 +19,32 @@ type OnSelectProps = {
     name?: string;
 }
 
+type UserSchema = {
+    name: string;
+    photo: string;
+    email: string;
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+
+type TransferOperation = {
+    paymentType: 'transfer' | 'purchase' | 'present';
+    updatedAt: string;
+    createdAt: string;
+    id: string;
+    paymentAmount: number;
+    incomingAccount: UserSchema;
+    outgoingAccount: UserSchema;
+}
+
 export const Transfers = () => {
     const [balance, setUserBalance] = React.useState(0);
     const [amountToTransfer, setAmountToTransfer] = React.useState(0);
     const [options, setOptions] = React.useState([] as OptionShape[]);
     const [recipientId, setRecipientId] = React.useState('');
+    const [userTranfers, setUserTransfers] = React.useState([]);
 
     const getUserBalance = () => {
         axios.get(`${BACKEND_URL}/user/me`, {
@@ -64,16 +85,27 @@ export const Transfers = () => {
         axios.post(`${BACKEND_URL}/operations/transfer`, {
             paymentAmount: amountToTransfer,
             incomingAccount: recipientId,
-        }, { 
-            headers: authHeader() 
+        }, {
+            headers: authHeader()
         }).then(() => {
             getUserBalance()
+            getUserTransfers()
+        })
+    }
+
+    const getUserTransfers = () => {
+        axios.get(`${BACKEND_URL}/user/operations`, {
+            headers: authHeader()
+        }).then((result) => {
+            const data = result.data.response;
+            setUserTransfers(data);
         })
     }
 
     React.useEffect(() => {
         getUserBalance();
         getOtherUsers();
+        getUserTransfers();
     }, [])
     return (
         <div>
@@ -82,16 +114,34 @@ export const Transfers = () => {
                 Ваш баланс: <span>{balance} бонусов</span>
             </p>
             <div>
-                <Select
-                    options={options}
-                    placeholder="id получателя"
-                    onChange={handleChange}
-                />
-                <Input
-                    placeholder="Сколько отправляем?"
-                    onChange={handleAmount}
-                />
-                <Button onClick={makeTransfer}>Перевести</Button>
+                <div>
+                    <Select
+                        options={options}
+                        placeholder="id получателя"
+                        onChange={handleChange}
+                    />
+                    <Input
+                        placeholder="Сколько отправляем?"
+                        onChange={handleAmount}
+                    />
+                    <Button onClick={makeTransfer}>Перевести</Button>
+                </div>
+                <div>
+                    <h2>Переводы</h2>
+                    {userTranfers.map((item: TransferOperation) => {
+                        return (
+                            <div>
+                                <hr />
+                                <p>Тип операции: {item.paymentType}</p>
+                                <p>
+                                    Количество: {item.paymentAmount}
+                                </p>
+                                <p>Получатель: {item.incomingAccount.name}</p>
+                                {item.outgoingAccount?.name && <p>Отправитель: {item.outgoingAccount.name}</p>}
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )
