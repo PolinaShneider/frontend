@@ -1,0 +1,18 @@
+.landing-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 54px;
+    width: 483px;
+}
+
+.landing-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    width: 381px;
+    color: rgba(0, 0, 0, 0.6);
+}

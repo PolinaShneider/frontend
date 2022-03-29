@@ -1,0 +1,22 @@
+.avatars-select {
+    display: flex;
+}
+
+.avatar-item {
+    width: 74px;
+    height: 74px;
+    background: #C4C4C4;
+    border-radius: 50%;
+    margin-right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid transparent;
+    box-sizing: border-box;
+}
+
+.avatar-selected {
+    border-color: blueviolet;
+}
